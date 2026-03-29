@@ -1,0 +1,119 @@
+# SyTP 配置文件
+# 作者: Shiyuan
+# 版本: 1.0.0
+
+# ==================== 功能开关 ====================
+
+# 是否启用传送费用
+enable-teleport-cost: true
+
+# 是否启用传送到此地费用 (tpc/tpw)
+enable-teleport-here-cost: true
+
+# 是否启用所有人都来我这费用 (tpw)
+enable-tpw-cost: true
+
+# 是否启用传送延迟
+enable-teleport-delay: true
+
+# 是否启用传送后粒子效果
+enable-particle-effect: true
+
+# ==================== 费用设置 ====================
+
+# 传送费用 (tpa)
+teleport-cost: 100.0
+
+# 传送到此地费用 (tpc)
+teleport-here-cost: 100.0
+
+# 所有人都来我这费用 (tpw) - 向发起者收取
+tpw-cost: 500.0
+
+# ==================== 传送设置 ====================
+
+# 传送延迟 (秒)
+teleport-delay-seconds: 3
+
+# 传送请求超时时间 (秒)
+request-timeout-seconds: 30
+
+# 传送冷却时间 (秒)
+teleport-cooldown-seconds: 10
+
+# ==================== 粒子效果设置 ====================
+
+# 粒子类型 (可选: PORTAL, END_ROD, FIREWORKS_SPARK, FLAME, HEART, NOTE, VILLAGER_HAPPY)
+particle-type: PORTAL
+
+# 粒子数量
+particle-count: 50
+
+# ==================== 消息设置 ====================
+
+messages:
+  prefix: "&8[&bSyTP&8] &r"
+  
+  # 通用消息
+  no-permission: "&c你没有权限使用此命令!"
+  player-not-found: "&c找不到该玩家!"
+  not-enough-money: "&c你的余额不足! 需要 &e${cost} &c金币"
+  teleport-cancelled: "&c传送已取消!"
+  teleport-in-progress: "&a传送中... 请保持静止 &e{seconds} &a秒"
+  teleport-success: "&a传送成功!"
+  request-expired: "&c传送请求已过期!"
+  cooldown-active: "&c传送冷却中! 请等待 &e{seconds} &c秒"
+  
+  # TPA 消息
+  tpa-sent: "&a已向 &e{player} &a发送传送请求"
+  tpa-received: "&e{player} &a想要传送到你这里"
+  tpa-accepted: "&a已接受 &e{player} &a的传送请求"
+  tpa-denied: "&c已拒绝 &e{player} &c的传送请求"
+  tpa-accepted-target: "&e{player} &a已接受你的传送请求，正在传送..."
+  tpa-denied-target: "&e{player} &c已拒绝你的传送请求"
+  
+  # TPC 消息
+  tpc-sent: "&a已向 &e{player} &a发送传送请求"
+  tpc-received: "&e{player} &a想要你传送到他那里"
+  tpc-accepted: "&a已接受传送到 &e{player} &a的位置"
+  tpc-denied: "&c已拒绝传送到 &e{player} &c的位置"
+  tpc-accepted-target: "&e{player} &a已接受传送请求，正在传送到你这里..."
+  tpc-denied-target: "&e{player} &c已拒绝传送请求"
+  
+  # TPW 消息
+  tpw-sent: "&a已向全服发送传送请求"
+  tpw-received: "&e{player} &a邀请所有人传送到他那里"
+  tpw-accepted: "&a正在传送到 &e{player} &a的位置..."
+  tpw-no-requests: "&c你没有待处理的传送请求"
+  
+  # 点击提示
+  click-accept: "&a&l[点击同意]"
+  click-deny: "&c&l[点击拒绝]"
+  
+  # 费用提示
+  cost-deducted: "&a已扣除 &e${cost} &a金币"
+  cost-free: "&a作为管理员，本次传送免费"
+
+# ==================== GUI 设置 ====================
+
+gui:
+  title: "&8传送请求"
+  accept-item: LIME_WOOL
+  accept-name: "&a&l同意传送"
+  accept-lore:
+    - "&7点击同意此传送请求"
+    - ""
+    - "&e请求者: &f{player}"
+  
+  deny-item: RED_WOOL
+  deny-name: "&c&l拒绝传送"
+  deny-lore:
+    - "&7点击拒绝此传送请求"
+    - ""
+    - "&e请求者: &f{player}"
+  
+  info-item: PAPER
+  info-name: "&e&l传送信息"
+  info-lore:
+    - "&7类型: &f{type}"
+    - "&7玩家: &f{player}"

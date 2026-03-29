@@ -1,0 +1,61 @@
+name: SyTP
+version: '1.0.0'
+main: com.shiyuan.sytp.SyTP
+api-version: '1.21'
+author: Shiyuan
+description: 更好的TP插件 - 适用于Minecraft Purpur 1.21.x
+
+softdepend:
+  - Vault
+
+commands:
+  sytp:
+    description: SyTP插件主命令
+    usage: /sytp [reload]
+    permission: sytp.admin
+  tpa:
+    description: 发送传送到其他玩家的请求
+    usage: /tpa <玩家名>
+    permission: sytp.tpa
+  tpc:
+    description: 发送请求让其他玩家传送到你这里
+    usage: /tpc <玩家名>
+    permission: sytp.tpc
+  tpw:
+    description: 发送请求让全服玩家传送到你这里
+    usage: /tpw
+    permission: sytp.tpw
+  tpaccept:
+    description: 接受传送请求
+    usage: /tpaccept
+    permission: sytp.accept
+  tpdeny:
+    description: 拒绝传送请求
+    usage: /tpdeny
+    permission: sytp.deny
+
+permissions:
+  sytp.admin:
+    description: 允许使用插件管理命令
+    default: op
+  sytp.tpa:
+    description: 允许使用/tpa命令
+    default: true
+  sytp.tpc:
+    description: 允许使用/tpc命令
+    default: true
+  sytp.tpw:
+    description: 允许使用/tpw命令
+    default: op
+  sytp.accept:
+    description: 允许接受传送请求
+    default: true
+  sytp.deny:
+    description: 允许拒绝传送请求
+    default: true
+  sytp.bypass.cost:
+    description: 绕过传送费用
+    default: op
+  sytp.bypass.delay:
+    description: 绕过传送延迟
+    default: op
