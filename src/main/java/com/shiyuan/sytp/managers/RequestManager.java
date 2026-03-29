@@ -39,12 +39,9 @@ public class RequestManager {
         );
         
         requests.computeIfAbsent(target.getUniqueId(), k -> new ArrayList<>()).add(request);
-        
-        // 发送请求消息和GUI
+
+        // 发送请求消息
         plugin.getMessageManager().sendRequestMessage(target, requester, RequestType.TPA);
-        plugin.getServer().getScheduler().runTask(plugin, () -> 
-            plugin.getTeleportManager().openRequestGUI(target, requester, request)
-        );
     }
 
     /**
@@ -62,12 +59,9 @@ public class RequestManager {
         );
         
         requests.computeIfAbsent(target.getUniqueId(), k -> new ArrayList<>()).add(request);
-        
-        // 发送请求消息和GUI
+
+        // 发送请求消息
         plugin.getMessageManager().sendRequestMessage(target, requester, RequestType.TPC);
-        plugin.getServer().getScheduler().runTask(plugin, () -> 
-            plugin.getTeleportManager().openRequestGUI(target, requester, request)
-        );
     }
 
     /**
@@ -91,9 +85,6 @@ public class RequestManager {
         for (Player player : plugin.getServer().getOnlinePlayers()) {
             if (!player.getUniqueId().equals(requester.getUniqueId())) {
                 plugin.getMessageManager().sendTpwRequestMessage(player, requester);
-                plugin.getServer().getScheduler().runTask(plugin, () -> 
-                    plugin.getTeleportManager().openTpwGUI(player, requester, request)
-                );
             }
         }
     }
